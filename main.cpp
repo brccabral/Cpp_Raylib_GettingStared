@@ -8,14 +8,20 @@ int main()
     SetTargetFPS(144);
 
     sprite = LoadTexture("resources/sprite.png");
+    float posX = -sprite.width;
 
     while (!WindowShouldClose())
     {
+        posX += GetFrameTime() * 300.0f;
+        if (posX > 800)
+        {
+            posX = -sprite.width;
+        }
 
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
-        DrawTexture(sprite, 10, 10, WHITE);
+        DrawTexture(sprite, posX, 10, WHITE);
 
         EndDrawing();
     }
