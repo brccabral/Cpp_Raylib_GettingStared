@@ -4,6 +4,7 @@ int main()
 {
     Texture2D sprite; // need to load after InitWindow because InitWindow loads the graphics libraries
     Sound sound; // need to InitAudioDevice
+    Music music;
 
     InitWindow(800, 450, "raylib - basic window");
     SetTargetFPS(144);
@@ -13,9 +14,13 @@ int main()
     float posX = -sprite.width;
 
     sound = LoadSound("resources/sound.ogg");
+    music = LoadMusicStream("resources/music.mp3");
+    PlayMusicStream(music);
 
     while (!WindowShouldClose())
     {
+        UpdateMusicStream(music);
+
         if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
             Rectangle spriteRec = {posX, 10, static_cast<float>(sprite.width), static_cast<float>(sprite.height)};
@@ -38,6 +43,7 @@ int main()
 
         EndDrawing();
     }
+    StopMusicStream(music);
     CloseAudioDevice();
     CloseWindow();
     return 0;
