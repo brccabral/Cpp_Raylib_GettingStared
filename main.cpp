@@ -2,7 +2,7 @@
 
 int main()
 {
-    int posX = 0;
+    float posX = 0;
 
     InitWindow(800, 450, "raylib - basic window");
 
@@ -10,7 +10,8 @@ int main()
 
     while (!WindowShouldClose())
     {
-        posX++;
+        posX += GetFrameTime() * 100;
+
         BeginDrawing();
         ClearBackground(RAYWHITE);
         DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
