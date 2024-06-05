@@ -15,7 +15,7 @@ int main()
 
     sound = LoadSound("resources/sound.ogg");
     music = LoadMusicStream("resources/music.mp3");
-    PlayMusicStream(music);
+    // PlayMusicStream(music);
 
     while (!WindowShouldClose())
     {
@@ -34,6 +34,12 @@ int main()
         if (posX > 800)
         {
             posX = -sprite.width;
+        }
+
+        if (IsKeyPressed(KEY_SPACE))
+        {
+            StopMusicStream(music);
+            PlayMusicStream(music);
         }
 
         BeginDrawing();
