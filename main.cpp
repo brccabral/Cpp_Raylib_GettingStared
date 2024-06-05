@@ -18,7 +18,11 @@ int main()
     {
         if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
-            PlaySound(sound);
+            Rectangle spriteRec = {posX, 10, static_cast<float>(sprite.width), static_cast<float>(sprite.height)};
+            if (CheckCollisionPointRec(GetMousePosition(), spriteRec))
+            {
+                PlaySound(sound);
+            }
         }
 
         posX += GetFrameTime() * 300.0f;
