@@ -8,3 +8,5 @@ resources/music.mp3
 resources/sound.ogg
 resources/sprite.png
 ```
+
+On Windows, make sure `C:\path\to\raylib` is in your `%PATH%`  
